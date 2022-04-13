@@ -24,4 +24,5 @@ void stack_int_push(stack_int *s, int value) {
 }
 
 int stack_int_pop(stack_int *s) {
+    return 0;
 }
