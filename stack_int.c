@@ -15,7 +15,6 @@ struct _stack_int {
 
 stack_int *stack_int_new() {
     stack_int *s = malloc(sizeof(stack_int));
-    s->top = NULL;
     return s;
 }
 
@@ -26,20 +25,12 @@ void stack_int_delete(stack_int **_s) {
 }
 
 int stack_int_empty(stack_int *s) {
-    return s->top == NULL;
+    return 0;
 }
 
 void stack_int_push(stack_int *s, int value) {
-    node *n = malloc(sizeof(node));
-    n->value = value;
-    n->next = s->top;
-    s->top = n;
 }
 
 int stack_int_pop(stack_int *s) {
-    node *n = s->top;
-    s->top = n->next;
-    int value = n->value;
-    free(n);
-    return value;
+    return 0;
 }
