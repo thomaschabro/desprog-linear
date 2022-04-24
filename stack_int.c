@@ -21,6 +21,12 @@ stack_int *stack_int_new() {
 
 void stack_int_delete(stack_int **_s) {
     stack_int *s = *_s;
+    node *n = s->top;
+    while (n != NULL) {
+        node *next = n->next;
+        free(n);
+        n = next;
+    }
     free(s);
     *_s = NULL;
 }
