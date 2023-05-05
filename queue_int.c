@@ -38,8 +38,32 @@ int queue_int_empty(queue_int *q) {
 }
 
 void queue_int_put(queue_int *q, int value) {
+
+    node *n = malloc(sizeof(node));
+    n->value = value;
+    n->next = NULL;
+
+    if (q->last != NULL) {
+        q->last->next = n;
+    } else {
+        q->first = n;
+    }
+    q->last = n;
+
 }
 
 int queue_int_get(queue_int *q) {
-    return 0;
+
+    node *n = q->first;
+    q->first = n->next;
+
+    if (q-> first == NULL) {
+        q->last = NULL;
+    }
+
+    int v = n->value;
+    free(n);
+
+    return v;
+
 }
